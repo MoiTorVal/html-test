@@ -5,9 +5,6 @@
 //const arr1 = ['a', 'b']
 //const arr2 = ['s', 'a'] return true
 
-const array1 = ["a", "b", "c", "x"];
-const array2 = ["z", "y", "d"];
-
 // time complexity O(n^2), space complexity O(1)
 function checkArray(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
@@ -32,4 +29,27 @@ function checkArray2(array1, array2) {
   return false;
 }
 
-console.log(checkArray2(array1, array2));
+const array1 = ["a", "b", "c", "x"];
+const array2 = ["z", "y", "x"];
+
+// hash map O(n)
+function containsCommonItem2(arr1, arr2) {
+  let map = {};
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!map[arr1[i]]) {
+      const item = arr1[i];
+      map[item] = true;
+    }
+  }
+
+  for (let j = 0; j < arr2.length; j++) {
+    if (map[arr2[j]]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+console.log(containsCommonItem2(array1, array2));
