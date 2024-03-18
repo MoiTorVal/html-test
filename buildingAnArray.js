@@ -36,9 +36,3 @@ class MyArray {
 }
 
 const newArray = new MyArray();
-newArray.push("moises");
-newArray.push("valdez");
-newArray.push("!");
-
-newArray.delete(1);
-console.log(newArray);
