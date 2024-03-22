@@ -1,7 +1,7 @@
 // Merge Two Arrays
 
 function mergeSortedArrays(arrayOne, arrayTwo) {
-  let arrayThree = [];
+  const arrayThree = [];
 
   for (let i = 0; i < arrayOne.length; i++) {
     arrayThree.push(arrayOne[i]);
