@@ -44,3 +44,4 @@ console.log(myHashTable.get("banana"));
 // create new methods
 // myHashTable.set("grapes", 10000);
 // myHashTable.get("grapes");
+// hashing
