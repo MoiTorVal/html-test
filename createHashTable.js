@@ -3,6 +3,7 @@ class HashTable {
     this.data = new Array(size);
   }
 
+  // underscore means private method
   _hash(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
@@ -12,16 +13,18 @@ class HashTable {
   }
 
   set(key, value) {
-    const index = this._hash(key);
-    if (!this.data[index]) {
-      this.data[index] = [];
+    const address = this._hash(key);
+    if (!this.data[address]) {
+      this.data[address] = [];
     }
-    this.data[index].push([key, value]);
+
+    this.data[address].push([key, value]);
+    return this.data;
   }
 
   get(key) {
-    const index = this._hash(key);
-    const bucket = this.data[index];
+    const address = this._hash(key);
+    const bucket = this.data[address];
 
     if (bucket) {
       for (let i = 0; i < bucket.length; i++) {
@@ -30,18 +33,11 @@ class HashTable {
         }
       }
     }
-
+    // O(1)
     return undefined;
   }
 }
 
 const myHashTable = new HashTable(50);
 myHashTable.set("apple", 10);
-myHashTable.set("banana", 20);
-
-console.log(myHashTable.get("apple"));
-console.log(myHashTable.get("banana"));
-// create new methods
-// myHashTable.set("grapes", 10000);
-// myHashTable.get("grapes");
-// hashing
+console.log(myHashTable.set("apple", 20));
