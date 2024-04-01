@@ -36,8 +36,21 @@ class HashTable {
     // O(1)
     return undefined;
   }
+
+  key() {
+    const keyArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keyArray.push(this.data[i][0][0]);
+      }
+    }
+    return keyArray;
+  }
 }
 
 const myHashTable = new HashTable(50);
 myHashTable.set("apple", 10);
-console.log(myHashTable.set("apple", 20));
+myHashTable.set("oranges", 10);
+myHashTable.set("grapes", 10);
+
+console.log(myHashTable.key());
