@@ -1,4 +1,4 @@
-//Google Question
+//Google Question in progress
 //Given an array = [2,5,1,2,3,5,1,2,4]:
 //It should return 2
 
