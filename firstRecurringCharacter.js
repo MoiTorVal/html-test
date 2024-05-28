@@ -1,4 +1,4 @@
-// su day la bai toan tim ki tu xuat hien dau tien trong mang
+// monday
 
 
 ///
