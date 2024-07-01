@@ -1,4 +1,4 @@
-// thurday
+// monday
 
 ///
 //Given an array = [2,5,1,2,3,5,1,2,4]:
@@ -9,9 +9,3 @@
 
 //Given an array = [2,3,4,5]:
 //It should return undefined
-
-function firstRecurringCharacter(input) {}
-
-//Bonus... What if we had this:
-// [2,5,5,2,3,5,1,2,4]
-// []
