@@ -53,15 +53,18 @@ class LinkedList {
   }
 
   insert(index, value) {
+    // Boundary Check
     if (index < 0 || index > this.length) {
       return false;
     }
 
+    // Insertion at the Beginning
     if (index === 0) {
       this.append(value);
       return true;
     }
 
+    // General Insertion Process
     const newNode = new Node(value);
     let currentNode = this.head;
     let currentIndex = 0;
@@ -79,13 +82,46 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return null;
+    }
+    let currentNode = this.head;
+    let currentIndex = 0;
+    let previousNode = null;
+
+    // Traverse to the node at the specified index
+    while (currentIndex < index) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+
+    // Remove the node at the specified index
+    if (index === 0) {
+      // Removing the head node
+      this.head = currentNode.next;
+      if (index === this.length - 1) {
+        this.tail = null;
+      }
+    } else if (index === this.length - 1) {
+      // Removing the tail node
+      previousNode.next = null;
+      this.tail = previousNode;
+    } else {
+      // Removing a node in the middle of the list
+      previousNode.next = currentNode.next;
+    }
+
+    this.length--;
+    return currentNode.value;
+  }
 }
 
-const myLinkedList = new LinkedList(10);
+const myLinkedList = new LinkedList();
 myLinkedList.append(5);
 myLinkedList.append(16);
-myLinkedList.append(99);
-myLinkedList.prepend(1);
+myLinkedList.remove(0);
 
-console.log(myLinkedList.insert(1, 11));
 console.log(myLinkedList.printList());
