@@ -120,8 +120,5 @@ class LinkedList {
 }
 
 const myLinkedList = new LinkedList();
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.remove(0);
 
 console.log(myLinkedList.printList());
