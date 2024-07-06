@@ -1,33 +1,33 @@
+// Singly Linked List
 class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
+  constructor(data) {
+    this.data = data;
+    this.next = null; // points to the next node
   }
 }
 class LinkedList {
-  constructor(value) {
+  constructor(data) {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
-  append(value) {
-    const newNode = new Node(value);
+  append(data) {
+    const newNode = new Node(data);
 
     if (!this.head) {
       this.head = newNode;
-      this.tail = newNode;
     } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
+      this.tail.next = newNode; // connects the current last node to 'newNode'
+      this.tail = newNode; // updates 'this.tail' to 'newNode', making it the last node
     }
 
     this.length++;
     return this;
   }
 
-  prepend(value) {
-    const newNode = new Node(value);
+  prepend(data) {
+    const newNode = new Node(data);
 
     if (!this.head) {
       this.head = newNode;
@@ -46,13 +46,13 @@ class LinkedList {
 
     let currentNode = this.head;
     while (currentNode !== null) {
-      array.push(currentNode.value);
+      array.push(currentNode.data);
       currentNode = currentNode.next;
     }
     return array;
   }
 
-  insert(index, value) {
+  insert(index, data) {
     // Boundary Check
     if (index < 0 || index > this.length) {
       return false;
@@ -60,12 +60,12 @@ class LinkedList {
 
     // Insertion at the Beginning
     if (index === 0) {
-      this.append(value);
+      this.append(data);
       return true;
     }
 
     // General Insertion Process
-    const newNode = new Node(value);
+    const newNode = new Node(data);
     let currentNode = this.head;
     let currentIndex = 0;
     let previousNode = null;
@@ -115,10 +115,13 @@ class LinkedList {
     }
 
     this.length--;
-    return currentNode.value;
+    return currentNode.data;
   }
 }
 
 const myLinkedList = new LinkedList();
+
+myLinkedList.append(1);
+myLinkedList.append(2);
 
 console.log(myLinkedList.printList());
