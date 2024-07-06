@@ -6,7 +6,7 @@ class Node {
   }
 }
 class LinkedList {
-  constructor(data) {
+  constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
@@ -17,6 +17,7 @@ class LinkedList {
 
     if (!this.head) {
       this.head = newNode;
+      this.tail = newNode;
     } else {
       this.tail.next = newNode; // connects the current last node to 'newNode'
       this.tail = newNode; // updates 'this.tail' to 'newNode', making it the last node
@@ -66,6 +67,7 @@ class LinkedList {
 
     // General Insertion Process
     const newNode = new Node(data);
+
     let currentNode = this.head;
     let currentIndex = 0;
     let previousNode = null;
@@ -122,6 +124,5 @@ class LinkedList {
 const myLinkedList = new LinkedList();
 
 myLinkedList.append(1);
-myLinkedList.append(2);
 
 console.log(myLinkedList.printList());
