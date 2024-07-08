@@ -128,5 +128,7 @@ linkedlist.append(1);
 linkedlist.prepend(0);
 linkedlist.insert(2, 2);
 linkedlist.remove(1);
+linkedlist.remove(0);
+linkedlist.remove(0);
 
 linkedlist.printList();
