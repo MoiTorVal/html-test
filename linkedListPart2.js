@@ -45,7 +45,7 @@ class LinkedList {
   insert(index, data) {
     // boundary check
     if (index < 0 || index > this.length) {
-      return false;
+      return null;
     }
 
     // Insertion at the Beginning
@@ -53,6 +53,61 @@ class LinkedList {
       this.append(data);
       return true;
     }
+
+    // / General Insertion Process
+    const newNode = new Node(data);
+
+    let currentNode = this.head;
+    let currentIndex = 0;
+    let previousNode = null;
+
+    while (currentIndex < index) {
+      previousNode = currentNode;
+      currentNode = currentNode.next; // Move to the next node in the list
+      currentIndex++;
+    }
+
+    newNode.next = currentNode;
+    previousNode.next = newNode;
+
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    // boundary check
+    if (index < 0 || index > this.length) {
+      return null;
+    }
+
+    let currentNode = this.head;
+    let currentIndex = 0;
+    let previousNode = null;
+
+    while (currentIndex < index) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+
+    // Remove the node at the specified index
+    if (index === 0) {
+      // Removing the head node
+      this.head = currentNode.next;
+      if (index === this.length - 1) {
+        this.tail = null;
+      }
+    } else if (index === this.length - 1) {
+      // Removing the tail node
+      previousNode.next = null;
+      this.tail = previousNode;
+    } else {
+      // Removing a node in the middle of the list
+      previousNode.next = currentNode.next;
+    }
+
+    this.length--;
+    return currentNode.data;
   }
 
   printList() {
@@ -63,15 +118,15 @@ class LinkedList {
       array.push(currentNode.data);
       currentNode = currentNode.next;
     }
-    console.log(array, this.length);
+    console.log(array);
   }
-
-  remove(index, data);
 }
 
 const linkedlist = new LinkedList();
 
 linkedlist.append(1);
 linkedlist.prepend(0);
+linkedlist.insert(2, 2);
+linkedlist.remove(1);
 
 linkedlist.printList();
