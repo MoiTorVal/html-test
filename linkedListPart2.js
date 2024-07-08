@@ -65,6 +65,8 @@ class LinkedList {
     }
     console.log(array, this.length);
   }
+
+  remove(index, data);
 }
 
 const linkedlist = new LinkedList();
