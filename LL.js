@@ -89,9 +89,15 @@ class LinkedList {
     // Remove the node at the specified index
     if (index === 0) {
       this.head = curNode.next;
-      if (index === this.length - 1) {
-        this.tail = null;
-      }
+    }
+
+    if (index === this.length - 1) {
+      this.tail = null;
+    } else if (index === this.length - 1) {
+      preNode.next = null;
+      this.tail = preNode;
+    } else {
+      preNode.next = curNode.next;
     }
 
     this.length--;
@@ -113,8 +119,10 @@ class LinkedList {
 
 const linkedlist = new LinkedList();
 
-linkedlist.append(10);
-linkedlist.prepend(1);
-linkedlist.prepend(2);
-linkedlist.insert(2, 0);
+linkedlist.append(0);
+linkedlist.append(1);
+linkedlist.append(2);
+linkedlist.append(3);
+
+linkedlist.remove(1);
 console.log(linkedlist.printList());
