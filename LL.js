@@ -42,7 +42,18 @@ class LinkedList {
     return this;
   }
 
-  
+  insert(index, data) {
+    if (index < 0 || index > this.length - 1) {
+      return false;
+    }
+
+    if (index === 0) {
+      this.append(data);
+      return true;
+    }
+  }
+
+  remove(index) {}
 
   printList() {
     let array = [];
