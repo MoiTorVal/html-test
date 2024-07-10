@@ -89,10 +89,6 @@ class LinkedList {
     // Remove the node at the specified index
     if (index === 0) {
       this.head = curNode.next;
-    }
-
-    if (index === this.length - 1) {
-      this.tail = null;
     } else if (index === this.length - 1) {
       preNode.next = null;
       this.tail = preNode;
