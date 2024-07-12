@@ -2,10 +2,11 @@ class Node {
   constructor(data) {
     this.data = data;
     this.next = null;
+    this.prev = null; // new reference point
   }
 }
 
-class LinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -20,6 +21,7 @@ class LinkedList {
       this.tail = newNode;
     } else {
       this.tail.next = newNode;
+      this.prev = this.tail;
       this.tail = newNode;
     }
 
@@ -35,6 +37,7 @@ class LinkedList {
       this.tail = newNode;
     } else {
       newNode.next = this.head;
+      this.head.prev = newNode;
       this.head = newNode;
     }
 
@@ -65,7 +68,9 @@ class LinkedList {
     }
 
     newNode.next = curNode;
-    preNode.next = newNode;
+    newNode.prev = curNode.prev;
+    curNode.prev.next = newNode;
+    curNode.prev = newNode;
 
     this.length++;
     return true;
@@ -113,7 +118,7 @@ class LinkedList {
   }
 }
 
-const linkedlist = new LinkedList();
+const linkedlist = new DoublyLinkedList();
 
 linkedlist.append(0);
 linkedlist.append(1);
