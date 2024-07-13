@@ -48,4 +48,4 @@ queue.enqueue(2);
 queue.enqueue(3);
 queue.print(); // Output: 1,2,3
 console.log(queue.dequeue()); // Output: 1
-queue.print(); // Output: 2,3
+queue.print();
