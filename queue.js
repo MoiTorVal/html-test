@@ -1,3 +1,4 @@
+// Description: This file contains the code for a queue data structure.
 class Queue {
   constructor() {
     this.items = [];
