@@ -1,3 +1,4 @@
+// Stacks are a type of data structure that stores elements in a Last-In/First-Out (LIFO) manner.
 class Stack {
   constructor() {
     this.items = [];
