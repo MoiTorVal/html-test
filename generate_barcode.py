@@ -1,4 +1,4 @@
-# I'll fix this later
+# barcode
 import barcode
 from barcode.writer import ImageWriter
 
