@@ -1,3 +1,4 @@
+// convert to array
 class Node {
   constructor(value) {
     this.value = value;
@@ -14,7 +15,7 @@ class Stack {
 
   peek() {
     if (this.top === null) return null;
-    return this.top.value;
+    return this.top;
   }
 
   push(value) {
@@ -28,20 +29,17 @@ class Stack {
       this.top = newNode;
     }
     this.length++;
+    return this;
   }
 
   pop() {
     if (this.length === 0) return null;
 
-    const value = this.top.value;
+    const holdingPointer = this.top;
     this.top = this.top.next;
-
-    if (this.length === 1) {
-      this.bottom = null;
-    }
-
     this.length--;
-    return value;
+
+    return holdingPointer;
   }
 
   isEmpty() {
@@ -51,4 +49,12 @@ class Stack {
 
 const myStack = new Stack();
 
-console.log(myStack.isEmpty());
+myStack.push("google");
+myStack.push("udemy");
+myStack.push("discord");
+
+myStack.pop();
+myStack.pop();
+myStack.pop();
+
+console.log(myStack.peek());
