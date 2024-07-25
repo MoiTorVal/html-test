@@ -1,4 +1,3 @@
-// convert to array
 class Node {
   constructor(value) {
     this.value = value;
