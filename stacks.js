@@ -13,7 +13,7 @@ class Stack {
   }
 
   peek() {
-    if (this.top === null) return null;
+    if (this.array === null) return null;
     return this.top;
   }
 
