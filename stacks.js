@@ -1,4 +1,4 @@
-// tuesday
+// wednesday
 class Node {
   constructor(value) {
     this.value = value;
