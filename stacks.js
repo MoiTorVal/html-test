@@ -1,4 +1,4 @@
-// monday part 2
+// Im back to the basics, I will be implementing a stack using a linked list
 class Node {
   constructor(value) {
     this.value = value;
